@@ -1707,7 +1707,7 @@ TODO
 See the documentation for `ecs_component_desc_t` for more component registration options.
 
 ### Unregistration
-A component can be unregistered from a world by deleting its entity. When a component is deleted, by default it will be removed from all entities that have the component. This behavior is customizable, see the "cleanup traits" section in the [component trait manual](ComponentTraits.md). 
+A component can be unregistered from a world by deleting its entity. When a component is deleted, by default it will be removed from all entities that have the component. This behavior is customizable, see [Cleanup traits](ComponentTraits.md#cleanup-traits). 
 
 The following example shows how to unregister a component:
 

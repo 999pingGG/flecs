@@ -31,7 +31,7 @@ void flecs_bootstrap(
         .entity = ecs_entity(world, { .id = ecs_id(id_), .name = #id_, .symbol = #id_ }),\
         .type.size = sizeof(id_),\
         .type.alignment = ECS_ALIGNOF(id_)\
-    });
+    })
 
 #define flecs_bootstrap_tag(world, name)\
     ecs_make_alive(world, name);\

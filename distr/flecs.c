@@ -6690,7 +6690,7 @@ const ecs_entity_t* flecs_bulk_new(
             } else {
                 ecs_os_memcpy(ptr, src_ptr, size * count);
             } 
-        };
+        }
 
         int32_t j, storage_count = table->column_count;
         for (j = 0; j < storage_count; j ++) {

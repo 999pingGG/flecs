@@ -68,8 +68,8 @@ void flecs_journal_end(void);
 /** @} */
 #endif // FLECS_JOURNAL_H
 #else
-#define flecs_journal_begin(...)
-#define flecs_journal_end(...)
-#define flecs_journal(...)
+#define flecs_journal_begin(...) ((void)0)
+#define flecs_journal_end(...) ((void)0)
+#define flecs_journal(...) ((void)0)
 
 #endif // FLECS_JOURNAL

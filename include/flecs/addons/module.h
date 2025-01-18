@@ -96,16 +96,16 @@ ecs_entity_t ecs_module_init(
 
 /** Define module. */
 #define ECS_MODULE_DEFINE(world, id)\
-    {\
+    do {\
         ecs_component_desc_t desc = {0};\
         desc.entity = ecs_id(id);\
         ecs_id(id) = ecs_module_init(world, #id, &desc);\
         ecs_set_scope(world, ecs_id(id));\
-    }
+    } while(0)
 
 /** Create a module. */
 #define ECS_MODULE(world, id)\
-    ecs_entity_t ecs_id(id) = 0; ECS_MODULE_DEFINE(world, id)\
+    ecs_entity_t ecs_id(id) = 0; ECS_MODULE_DEFINE(world, id);\
     (void)ecs_id(id)
 
 /** Wrapper around ecs_import().

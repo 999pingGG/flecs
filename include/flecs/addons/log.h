@@ -254,17 +254,17 @@ void ecs_parser_warningv_(
  * out tracing statements from a build, which improves performance. */
 
 #if defined(FLECS_LOG_3) /* All debug tracing enabled */
-#define ecs_dbg_1(...) ecs_log(1, __VA_ARGS__);
-#define ecs_dbg_2(...) ecs_log(2, __VA_ARGS__);
-#define ecs_dbg_3(...) ecs_log(3, __VA_ARGS__);
+#define ecs_dbg_1(...) ecs_log(1, __VA_ARGS__)
+#define ecs_dbg_2(...) ecs_log(2, __VA_ARGS__)
+#define ecs_dbg_3(...) ecs_log(3, __VA_ARGS__)
 
-#define ecs_log_push_1() ecs_log_push_(1);
-#define ecs_log_push_2() ecs_log_push_(2);
-#define ecs_log_push_3() ecs_log_push_(3);
+#define ecs_log_push_1() ecs_log_push_(1)
+#define ecs_log_push_2() ecs_log_push_(2)
+#define ecs_log_push_3() ecs_log_push_(3)
 
-#define ecs_log_pop_1() ecs_log_pop_(1);
-#define ecs_log_pop_2() ecs_log_pop_(2);
-#define ecs_log_pop_3() ecs_log_pop_(3);
+#define ecs_log_pop_1() ecs_log_pop_(1)
+#define ecs_log_pop_2() ecs_log_pop_(2)
+#define ecs_log_pop_3() ecs_log_pop_(3)
 
 #define ecs_should_log_1() ecs_should_log(1)
 #define ecs_should_log_2() ecs_should_log(2)
@@ -358,7 +358,7 @@ void ecs_parser_warningv_(
  * Unconditionally aborts process. */
 #define ecs_abort(error_code, ...)\
     ecs_abort_(error_code, __FILE__, __LINE__, __VA_ARGS__);\
-    ecs_os_abort(); abort(); /* satisfy compiler/static analyzers */
+    ecs_os_abort(); abort() /* satisfy compiler/static analyzers */
 
 /** Assert.
  * Aborts if condition is false, disabled in debug mode. */
@@ -390,7 +390,7 @@ void ecs_parser_warningv_(
 #ifdef FLECS_SANITIZE
 #define ecs_san_assert(condition, error_code, ...) ecs_assert(condition, error_code, __VA_ARGS__)
 #else
-#define ecs_san_assert(condition, error_code, ...)
+#define ecs_san_assert(condition, error_code, ...) ((void)0)
 #endif
 
 
@@ -398,7 +398,7 @@ void ecs_parser_warningv_(
 #define ecs_dummy_check\
     if ((false)) {\
         goto error;\
-    }
+    } ((void)0)
 
 /** Check.
  * goto error if condition is false. */

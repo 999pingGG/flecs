@@ -209,12 +209,14 @@
         ecs_assert(name_ != NULL, ECS_INVALID_PARAMETER, "failed to create query %s", #name_);\
     }
 
-/** Declare & define an observer.
+/** Declare a new ecs_query_t* variable with the given name and define it.
  *
  * Example:
  *
  * @code
- * ECS_OBSERVER(world, AddPosition, EcsOnAdd, Position);
+ * ECS_QUERY(world, q, Position, Velocity);
+ *
+ * ecs_iter_t it = ecs_query_iter(world, q);
  * @endcode
  */
 #define ECS_QUERY(world, name, ...)\
@@ -268,7 +270,7 @@
         .type.alignment = ECS_ALIGNOF(T) \
     })
 
-/** Shorthand for creating a query with ecs_query_cache_init.
+/** Shorthand for creating a query with ecs_query_init.
  *
  * Example:
  *   ecs_query(world, {

@@ -6648,8 +6648,6 @@ void ecs_modified_id(
  * component. If the component has a copy hook registered, it will be used to
  * copy in the component.
  *
- * If the provided entity is 0, a new entity will be created.
- *
  * @param world The world.
  * @param entity The entity.
  * @param id The id of the component to set.
@@ -9722,12 +9720,14 @@ int ecs_value_move_ctor(
         ecs_assert(name_ != NULL, ECS_INVALID_PARAMETER, "failed to create query %s", #name_);\
     }
 
-/** Declare & define an observer.
+/** Declare a new ecs_query_t* variable with the given name and define it.
  *
  * Example:
  *
  * @code
- * ECS_OBSERVER(world, AddPosition, EcsOnAdd, Position);
+ * ECS_QUERY(world, q, Position, Velocity);
+ *
+ * ecs_iter_t it = ecs_query_iter(world, q);
  * @endcode
  */
 #define ECS_QUERY(world, name, ...)\
@@ -9781,7 +9781,7 @@ int ecs_value_move_ctor(
         .type.alignment = ECS_ALIGNOF(T) \
     })
 
-/** Shorthand for creating a query with ecs_query_cache_init.
+/** Shorthand for creating a query with ecs_query_init.
  *
  * Example:
  *   ecs_query(world, {

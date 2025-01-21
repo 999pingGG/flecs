@@ -3387,8 +3387,6 @@ void ecs_modified_id(
  * component. If the component has a copy hook registered, it will be used to
  * copy in the component.
  *
- * If the provided entity is 0, a new entity will be created.
- *
  * @param world The world.
  * @param entity The entity.
  * @param id The id of the component to set.
